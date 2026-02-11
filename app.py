@@ -51,7 +51,7 @@ case = st.session_state.all_cases[current_case_pos]
 
 # --- 确保这两行之后，才是你显示“案发现场：{case['location']}”的代码 ---
 
-# --- 4. 界面布局 (保持之前的羊皮卷美学) ---
+# --- 4. 界面布局  ---
 st.markdown("""
     <style>
     .stApp { background-color: #f4ece1; background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); }
@@ -59,18 +59,16 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("📜 斯比：机密调查档案")
+st.title("📜 斯比的五十坨💩")
 # --- 游戏背景介绍区 ---
-with st.expander("📖 案情前传：消失的五天", expanded=True):
+with st.expander("📖 案情前传：, expanded=True):
     st.markdown(f"""
     <div style="font-style: italic; color: #5d4037; line-height: 1.6;">
-        你刚刚结束了五天的借住生活回到家中。
+        你去朋友家借住了五天，
         本以为有<b>自动饮水机</b>和<b>定时喂食器</b>的加持，你的小猫<b>斯比</b>会过得安稳，
         谁知推开门的那一刻，迎接你的是遍布全屋的“惊喜”……
         <br><br>
-        原本温馨的家已沦为斯比的实验场，那些散落在各处的样本（💩）是她留给你的唯一线索。
-        作为唯一的调查员，你必须根据样本的形态、颜色和位置，
-        推断出这失踪的 120 小时里，斯比到底背着你干了什么。
+        家里全是斯比的“杰作（💩）” 请根据你找到的样本（💩）推断出斯比到底做了什么。
     </div>
     """, unsafe_allow_html=True)
 st.write(f"**当前档案进度：{st.session_state.idx + 1} / {len(st.session_state.all_cases)}** (已存档)")
