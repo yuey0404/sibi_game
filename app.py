@@ -46,6 +46,26 @@ if 'initialized' not in st.session_state:
     st.session_state.answer_correct = False
 
     # --- 这一步最关键：根据当前的进度索引，从打乱的顺序里取出对应的题目数据 ---
+# 如果因为刷新导致 session_state 丢了，强制重新触发一次初始化逻辑
+if 'order' not in st.session_state or 'all_cases' not in st.session_state:
+    st.session_state.initialized = False # 强制标记为未初始化
+    # 这里直接重定向或者手动调用一次加载逻辑
+    with open('cases.json', 'r', encoding='utf-8') as f:
+        st.session_state.all_cases = json.load(f)
+    
+    saved_data = load_save()
+    if saved_data and "order" in saved_data:
+        st.session_state.order = saved_data["order"]
+        st.session_state.idx = saved_data.get("idx", 0)
+    else:
+        case_indices = list(range(len(st.session_state.all_cases)))
+        random.shuffle(case_indices)
+        st.session_state.order = case_indices
+        st.session_state.idx = 0
+    st.session_state.initialized = True
+    st.session_state.answer_correct = False
+
+# 现在再执行这两行就安全了
 current_case_pos = st.session_state.order[st.session_state.idx]
 case = st.session_state.all_cases[current_case_pos]
 
