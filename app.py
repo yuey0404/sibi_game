@@ -61,7 +61,7 @@ st.markdown("""
 
 st.title("📜 斯比的五十坨💩")
 # --- 游戏背景介绍区 ---
-with st.expander("📖 案情前传：, expanded=True):
+with st.expander("📖 案情前传：", expanded=True):
     st.markdown(f"""
     <div style="font-style: italic; color: #5d4037; line-height: 1.6;">
         你去朋友家借住了五天，
