@@ -74,10 +74,10 @@ if 'initialized' not in st.session_state or 'order' not in st.session_state:
     st.session_state.answer_correct = False
 
 # --- 4. 游戏界面展示 ---
-st.title("📜 斯比的五十坨屎：机密调查档案")
+st.title(" 斯比的五十坨屎：机密调查档案")
 
 # 开场背景介绍
-with st.expander("📖 案情前传：消失的五天", expanded=(st.session_state.idx == 0)):
+with st.expander("📖 案情前传：", expanded=(st.session_state.idx == 0)):
     st.markdown("""
     <div style="font-style: italic; color: #5d4037; line-height: 1.6;">
         你刚刚结束了五天的借住生活回到家中。<br>
@@ -91,7 +91,7 @@ with st.expander("📖 案情前传：消失的五天", expanded=(st.session_sta
 # 检查游戏是否通关
 if st.session_state.idx >= len(st.session_state.all_cases):
     st.balloons()
-    st.success("🏆 终极真相：你已经查清了所有 50 份档案！斯比在枕头上看着你，似乎在等你道歉。")
+    st.success("🏆 终极真相：你已经查清了所有 50 份样本！斯比欣慰的看着你，准备等你夸她“真棒”。")
     if st.button("重置档案，再次调查"):
         if os.path.exists(SAVE_FILE): os.remove(SAVE_FILE)
         st.session_state.clear()
@@ -143,11 +143,11 @@ with col_text:
                     st.session_state.answer_correct = True
                     st.rerun()
                 else:
-                    st.error("❌ 逻辑谬误。这并不符合斯比的行为逻辑。")
+                    st.error("❌ 斯比正在失望的看着你。")
     else:
         # 答对后的显示
-        st.success(f"✅ 真相大白！\n\n{case['wiki']}")
-        if st.button("归档，前往下一份卷宗 ➡"):
+        st.success(f"✅ 斯比骄傲的看着你！\n\n{case['wiki']}")
+        if st.button("归档，前往下一处现场 ➡"):
             st.session_state.idx += 1
             st.session_state.answer_correct = False
             save_game(st.session_state.idx, st.session_state.order)
