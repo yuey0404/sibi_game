@@ -9,8 +9,9 @@ st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 st.markdown("""
     <style>
     /* 1. 基础全局文字：深褐色（用于背景） */
-    .stApp, .stMarkdown, p, span, div, h1, h2, h3, h4, h5, h6 {
-        color: #3e2723 !important;
+    p, span, h1, h2, h3, h4, h5, h6, label {
+    color: #3e2723 !important;
+}
     }
 
     /* 2. 背景图逻辑 */
