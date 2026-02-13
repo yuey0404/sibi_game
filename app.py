@@ -8,41 +8,45 @@ st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 
 st.markdown("""
     <style>
-    /* 1. 强制整个 App 的文字颜色，防止夜间模式变白 */
+    /* 1. 基础全局文字：深褐色（用于背景） */
     .stApp, .stMarkdown, p, span, div, h1, h2, h3, h4, h5, h6 {
         color: #3e2723 !important;
     }
 
+    /* 2. 背景图逻辑 */
     .stApp {
         background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
         background-color: #f4ece1;
     }
 
-    /* 2. 档案盒子的样式 */
+    /* 3. 重点：按钮样式彻底重写 */
+    .stButton>button {
+        width: 100%;
+        background-color: #5d4037 !important; /* 深棕色背景 */
+        border: 1px solid #3e2723 !important;
+        border-radius: 8px;
+        padding: 10px;
+        
+        /* 关键点：强制按钮内的文字为奶白色，且加粗 */
+        color: #f4ece1 !important; 
+        font-weight: 800 !important;
+        font-size: 18px !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* 增加一点阴影让字更清晰 */
+    }
+
+    /* 4. 按钮悬停效果（让交互更高级） */
+    .stButton>button:hover {
+        background-color: #8d6e63 !important; /* 鼠标移上去变浅一点 */
+        color: #ffffff !important;
+    }
+
+    /* 5. 档案盒子 */
     .paper-box {
-        background: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.4);
         padding: 25px;
         border: 2px solid #5d4037;
         border-radius: 15px;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-        /* 这里的文字也要强制加深 */
         color: #3e2723 !important;
-    }
-
-    /* 3. 按钮文字颜色单独设置（因为按钮背景是深的，字要浅色才看得清） */
-    .stButton>button {
-        width: 100%;
-        background-color: #5d4037 !important;
-        color: #f4ece1 !important; /* 按钮内部文字保持浅色 */
-        font-weight: bold;
-        border-radius: 8px;
-        border: none;
-        padding: 10px;
-    }
-    
-    /* 4. 解决展开框 (expander) 的标题颜色 */
-    .streamlit-expanderHeader {
-        color: #5d4037 !important;
     }
     </style>
     """, unsafe_allow_html=True)
