@@ -19,27 +19,18 @@ st.markdown("""
         background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
         background-color: #f4ece1;
     }
-
-    /* 3. 重点：按钮样式彻底重写 */
-   /* 使用更长的路径来提高优先级 */
-    .stApp .stButton > button {
-        background-color: #5d4037 !important;
-        color: #ffffff !important;  /* 换成纯白色试试，看能不能变白 */
-        font-weight: 900 !important;
-}
-        width: 100%;
-        background-color: #5d4037 !important; /* 深棕色背景 */
+    .stButton>button {
+        width: 100%; 
         border: 1px solid #3e2723 !important;
         border-radius: 8px;
         padding: 10px;
         
         /* 关键点：强制按钮内的文字为奶白色，且加粗 */
-        color: #fff5ee !important; 
+        color: #f4ece1 !important; 
         font-weight: 800 !important;
         font-size: 18px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* 增加一点阴影让字更清晰 */
     }
-
     /* 4. 按钮悬停效果（让交互更高级） */
     .stButton>button:hover {
         background-color: #8d6e63 !important; /* 鼠标移上去变浅一点 */
