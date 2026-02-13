@@ -6,50 +6,47 @@ import random
 # --- 1. 页面配置与美学风格 ---
 st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 
+# 这里的三个引号是开启“字符串模式”，让 Python 不要管里面的内容
+st.markdown("""
 <style>
+    /* 1. 基础背景 */
+    .stApp {
+        background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
+        background-color: #f4ece1;
+    }
 
-.stApp {
-    background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
-    background-color: #f4ece1;
-}
-
-
-p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-    color: #3e2723; 
-}
-
-
-@media (prefers-color-scheme: dark) {
+    /* 2. 默认模式：深色字 */
     p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-        color: #ffffff !important; 
+        color: #3e2723;
     }
-    .paper-box {
-        background: rgba(0, 0, 0, 0.4); 
-        border-color: #ffffff;
-    }
-}
 
-
-.stButton > button {
-    width: 100%;
-    background-color: #5d4037 !important;
-    border-radius: 8px;
-    font-weight: 800;
-}
-
-
-@media (prefers-color-scheme: dark) {
+    /* 3. 按钮样式 */
     .stButton > button {
-        color: #ffffff !important;
-        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        width: 100%;
+        background-color: #5d4037 !important;
+        border-radius: 8px;
+        font-weight: 800;
+        color: #f4ece1 !important;
+        border: none;
+        padding: 10px;
     }
-}
-@media (prefers-color-scheme: light) {
-    .stButton > button {
-        color: #f4ece1 !important; /* 浅米色字 */
+
+    /* 4. 自适应夜间模式 */
+    @media (prefers-color-scheme: dark) {
+        p, span, h1, h2, h3, h4, h5, h6, .paper-box {
+            color: #ffffff !important;
+        }
+        .paper-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: #ffffff;
+        }
+        .stButton > button {
+            color: #ffffff !important;
+        }
     }
-}
 </style>
+""", unsafe_allow_html=True) 
+# ↑ 这里的三个引号必须闭合，后面的逗号和参数也得写对
 # --- 2. 存档系统工具 ---
 SAVE_FILE = "save_data.json"
 
