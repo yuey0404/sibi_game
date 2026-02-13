@@ -28,7 +28,7 @@ st.markdown("""
         padding: 10px;
         
         /* 关键点：强制按钮内的文字为奶白色，且加粗 */
-        color: #f4ece1 !important; 
+        color: #fff5ee !important; 
         font-weight: 800 !important;
         font-size: 18px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* 增加一点阴影让字更清晰 */
