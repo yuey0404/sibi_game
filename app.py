@@ -13,23 +13,23 @@ st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
     background-color: #f4ece1;
 }
 
-/* 2. 默认模式（日间模式）：深色字 */
+
 p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-    color: #3e2723; /* 优雅的深褐色 */
+    color: #3e2723; 
 }
 
-/* 3. 【黑魔法】自适应夜间模式 */
+
 @media (prefers-color-scheme: dark) {
     p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-        color: #ffffff !important; /* 当系统开启夜间模式时，文字自动变白 */
+        color: #ffffff !important; 
     }
     .paper-box {
-        background: rgba(0, 0, 0, 0.4); /* 夜间模式下档案盒背景变深，衬托白字 */
+        background: rgba(0, 0, 0, 0.4); 
         border-color: #ffffff;
     }
 }
 
-/* 4. 按钮自适应：保持深色底，但确保字色清晰 */
+
 .stButton > button {
     width: 100%;
     background-color: #5d4037 !important;
@@ -37,7 +37,7 @@ p, span, h1, h2, h3, h4, h5, h6, .paper-box {
     font-weight: 800;
 }
 
-/* 按钮内部文字自适应：如果系统是暗色，按钮文字可以更亮 */
+
 @media (prefers-color-scheme: dark) {
     .stButton > button {
         color: #ffffff !important;
