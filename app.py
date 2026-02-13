@@ -20,7 +20,12 @@ st.markdown("""
     }
 
     /* 3. 重点：按钮样式彻底重写 */
-    .stButton>button {
+   /* 使用更长的路径来提高优先级 */
+    .stApp .stButton > button {
+        background-color: #5d4037 !important;
+        color: #ffffff !important;  /* 换成纯白色试试，看能不能变白 */
+        font-weight: 900 !important;
+}
         width: 100%;
         background-color: #5d4037 !important; /* 深棕色背景 */
         border: 1px solid #3e2723 !important;
