@@ -6,48 +6,50 @@ import random
 # --- 1. 页面配置与美学风格 ---
 st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 
-st.markdown("""
-    <style>
-    /* 1. 基础全局文字：深褐色（用于背景） */
-    p, span, h1, h2, h3, h4, h5, h6, label {
-    color: #3e2723 !important;
+<style>
+
+.stApp {
+    background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
+    background-color: #f4ece1;
 }
-    }
 
-    /* 2. 背景图逻辑 */
-    .stApp {
-        background-image: url("https://www.transparenttextures.com/patterns/old-map.png"); 
-        background-color: #f4ece1;
-    }
-    .stButton>button {
-        width: 100%; 
-        border: 1px solid #3e2723 !important;
-        border-radius: 8px;
-        padding: 10px;
-        
-        /* 关键点：强制按钮内的文字为奶白色，且加粗 */
-        color: #f4ece1 !important; 
-        font-weight: 800 !important;
-        font-size: 18px !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* 增加一点阴影让字更清晰 */
-    }
-    /* 4. 按钮悬停效果（让交互更高级） */
-    .stButton>button:hover {
-        background-color: #8d6e63 !important; /* 鼠标移上去变浅一点 */
-        color: #ffffff !important;
-    }
+/* 2. 默认模式（日间模式）：深色字 */
+p, span, h1, h2, h3, h4, h5, h6, .paper-box {
+    color: #3e2723; /* 优雅的深褐色 */
+}
 
-    /* 5. 档案盒子 */
+/* 3. 【黑魔法】自适应夜间模式 */
+@media (prefers-color-scheme: dark) {
+    p, span, h1, h2, h3, h4, h5, h6, .paper-box {
+        color: #ffffff !important; /* 当系统开启夜间模式时，文字自动变白 */
+    }
     .paper-box {
-        background: rgba(255, 255, 255, 0.4);
-        padding: 25px;
-        border: 2px solid #5d4037;
-        border-radius: 15px;
-        color: #3e2723 !important;
+        background: rgba(0, 0, 0, 0.4); /* 夜间模式下档案盒背景变深，衬托白字 */
+        border-color: #ffffff;
     }
-    </style>
-    """, unsafe_allow_html=True)
+}
 
+/* 4. 按钮自适应：保持深色底，但确保字色清晰 */
+.stButton > button {
+    width: 100%;
+    background-color: #5d4037 !important;
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+/* 按钮内部文字自适应：如果系统是暗色，按钮文字可以更亮 */
+@media (prefers-color-scheme: dark) {
+    .stButton > button {
+        color: #ffffff !important;
+        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+}
+@media (prefers-color-scheme: light) {
+    .stButton > button {
+        color: #f4ece1 !important; /* 浅米色字 */
+    }
+}
+</style>
 # --- 2. 存档系统工具 ---
 SAVE_FILE = "save_data.json"
 
