@@ -7,7 +7,7 @@ import random
 st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 
 # 这里的三个引号是开启“字符串模式”，让 Python 不要管里面的内容
-st.markdown("""
+st.markdown(
 <style>
     /* 1. 基础背景 */
     .stApp {
@@ -55,7 +55,7 @@ st.markdown("""
         }
     }
 </style>
-""", unsafe_allow_html=True)
+, unsafe_allow_html=True)
 # ↑ 这里的三个引号必须闭合，后面的逗号和参数也得写对
 # --- 2. 存档系统工具 ---
 SAVE_FILE = "save_data.json"
