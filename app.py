@@ -15,37 +15,47 @@ st.markdown("""
         background-color: #f4ece1;
     }
 
-    /* 2. 默认模式：深色字 */
+    /* 2. 全局文字颜色：深褐色 */
     p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-        color: #3e2723;
+        color: #3e2723 !important;
     }
 
-    /* 3. 按钮样式 */
+    /* 3. 按钮样式核心修正 */
     .stButton > button {
         width: 100%;
-        background-color: #5d4037 !important;
+        background-color: #5d4037 !important; /* 深褐色背景 */
+        color: #f4ece1 !important;           /* 浅色文字：确保看清 */
         border-radius: 8px;
         font-weight: 800;
-        color: #f4ece1 !important;
         border: none;
         padding: 10px;
     }
 
-    /* 4. 自适应夜间模式 */
+    /* 按钮悬停效果：稍微变亮一点点，增加互动感 */
+    .stButton > button:hover {
+        background-color: #795548 !important;
+        color: #ffffff !important;
+    }
+
+    /* 4. 自适应夜间模式修正 */
     @media (prefers-color-scheme: dark) {
-        p, span, h1, h2, h3, h4, h5, h6, .paper-box {
+        /* 夜间模式下，只有背景文字变白 */
+        p, span, h1, h2, h3, h4, h5, h6 {
             color: #ffffff !important;
         }
         .paper-box {
             background: rgba(0, 0, 0, 0.4);
-            border-color: #ffffff;
-        }
-        .stButton > button {
+            border: 1px solid #ffffff;
             color: #ffffff !important;
+        }
+        /* 关键：强制按钮文字在夜间模式下依然保持浅色，不跟背景混淆 */
+        .stButton > button {
+            color: #f4ece1 !important;
+            background-color: #5d4037 !important;
         }
     }
 </style>
-""", unsafe_allow_html=True) 
+""", unsafe_allow_html=True)
 # ↑ 这里的三个引号必须闭合，后面的逗号和参数也得写对
 # --- 2. 存档系统工具 ---
 SAVE_FILE = "save_data.json"
