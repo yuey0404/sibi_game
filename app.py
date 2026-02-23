@@ -7,7 +7,7 @@ import random
 st.set_page_config(page_title="斯比的五十坨屎", layout="wide")
 
 # 这里的三个引号是开启“字符串模式”，让 Python 不要管里面的内容
-st.markdown(
+st.markdown("""
 <style>
     /* 1. 基础背景 */
     .stApp {
@@ -15,47 +15,46 @@ st.markdown(
         background-color: #f4ece1;
     }
 
-    /* 2. 全局文字颜色：深褐色 */
+    /* 2. 全局文字颜色：全部改为白色 */
+    /* 加上 text-shadow 是为了防止背景太亮导致白字看不清 */
     p, span, h1, h2, h3, h4, h5, h6, .paper-box {
-        color: #3e2723 !important;
+        color: #ffffff !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
 
-    /* 3. 按钮样式核心修正 */
+    /* 3. 按钮样式：深色背景 + 白色文字 */
     .stButton > button {
         width: 100%;
-        background-color: #5d4037 !important; /* 深褐色背景 */
-        color: #f4ece1 !important;           /* 浅色文字：确保看清 */
+        background-color: #5d4037 !important; 
+        color: #ffffff !important;           
         border-radius: 8px;
         font-weight: 800;
-        border: none;
+        border: 2px solid #ffffff; /* 给按钮加个白边，更有质感 */
         padding: 10px;
     }
 
-    /* 按钮悬停效果：稍微变亮一点点，增加互动感 */
+    /* 按钮悬停效果 */
     .stButton > button:hover {
         background-color: #795548 !important;
-        color: #ffffff !important;
+        border-color: #f4ece1;
     }
 
-    /* 4. 自适应夜间模式修正 */
+    /* 4. 这里的框框背景调深一点，衬托白字 */
+    .paper-box {
+        background: rgba(62, 39, 35, 0.7) !important; 
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    /* 5. 强制覆盖夜间模式，保持一致 */
     @media (prefers-color-scheme: dark) {
-        /* 夜间模式下，只有背景文字变白 */
+        .stApp { background-color: #1a1a1a; }
         p, span, h1, h2, h3, h4, h5, h6 {
             color: #ffffff !important;
         }
-        .paper-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid #ffffff;
-            color: #ffffff !important;
-        }
-        /* 关键：强制按钮文字在夜间模式下依然保持浅色，不跟背景混淆 */
-        .stButton > button {
-            color: #f4ece1 !important;
-            background-color: #5d4037 !important;
-        }
     }
 </style>
-, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 # ↑ 这里的三个引号必须闭合，后面的逗号和参数也得写对
 # --- 2. 存档系统工具 ---
 SAVE_FILE = "save_data.json"
